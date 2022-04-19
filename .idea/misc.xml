@@ -3,6 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/activity_main.xml" value="0.16210739614994935" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/fragment_instructions.xml" value="0.2921195652173913" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/fragment_login.xml" value="0.25" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/fragment_shoe_detail.xml" value="0.1" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/fragment_shoe_list.xml" value="0.22" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/fragment_welcome.xml" value="0.25" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/list_item.xml" value="0.16210739614994935" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/layout/list_item_2.xml" value="0.33" />
+        <entry key="..\:/Users/ecthi/AndroidStudioProjects/course1-starter-shoestore/app/src/main/res/menu/menu.xml" value="0.18" />
+        <entry key="..\:/Users/ecthi/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.14221014492753623" />
         <entry key="..\:/Users/ecthi/Downloads/nd940-android-kotlin-course1-starter-master/nd940-android-kotlin-course1-starter-master/starter/app/src/main/res/layout/activity_main.xml" value="0.16210739614994935" />
       </map>
     </option>
