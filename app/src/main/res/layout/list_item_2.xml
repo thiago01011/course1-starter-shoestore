@@ -1,109 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_notification"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:theme="@style/Theme.MaterialComponents.Light">
+<layout>
+    <data>
+        <variable
+            name="shoeData"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/card_notification"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="16dp"
+        android:theme="@style/Theme.MaterialComponents.Light">
 
-        <TextView
-            android:id="@+id/shoe"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/shoe"
-            android:paddingStart="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/login_bg">
 
-        <TextView
-            android:id="@+id/shoe_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="Adidas "
-            android:padding="@dimen/padding_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/shoe"
-            app:layout_constraintStart_toEndOf="@+id/shoe"
-            app:layout_constraintTop_toTopOf="@+id/shoe" />
+            <TextView
+                android:id="@+id/shoe"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/shoe"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/size"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/size"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingStart="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/shoe"
-            app:layout_constraintStart_toEndOf="@+id/shoe_text"
-            app:layout_constraintTop_toTopOf="@+id/shoe" />
+            <TextView
+                android:id="@+id/shoe_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:text="@{shoeData.name}"
+                android:textColor="@color/text_color"
+                app:layout_constraintBottom_toBottomOf="@+id/shoe"
+                app:layout_constraintStart_toEndOf="@+id/shoe"
+                app:layout_constraintTop_toTopOf="@+id/shoe"
+                tools:text="Adidas " />
 
-        <TextView
-            android:id="@+id/size_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
-            app:layout_constraintStart_toEndOf="@+id/size"
-            app:layout_constraintTop_toTopOf="@+id/size"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="39" />
+            <TextView
+                android:id="@+id/size"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/size"
+                app:layout_constraintBottom_toBottomOf="@+id/shoe"
+                app:layout_constraintStart_toEndOf="@+id/shoe_text"
+                app:layout_constraintTop_toTopOf="@+id/shoe" />
 
-        <TextView
-            android:id="@+id/company"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/company"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:paddingStart="@dimen/padding_medium"
-            android:paddingTop="@dimen/padding_medium"
-            android:paddingBottom="@dimen/padding_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/size"
-            app:layout_constraintStart_toEndOf="@+id/size_text"
-            app:layout_constraintTop_toTopOf="@+id/size" />
+            <TextView
+                android:id="@+id/size_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:text="@{Double.toString(shoeData.size)}"
+                android:textColor="@color/text_color"
+                app:layout_constraintBottom_toBottomOf="@+id/size"
+                app:layout_constraintStart_toEndOf="@+id/size"
+                app:layout_constraintTop_toTopOf="@+id/size"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="39" />
 
-        <TextView
-            android:id="@+id/company_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="@dimen/padding_medium"
-            app:layout_constraintBottom_toBottomOf="@+id/company"
-            app:layout_constraintStart_toEndOf="@+id/company"
-            app:layout_constraintTop_toTopOf="@+id/company"
-            app:layout_constraintVertical_bias="1.0"
-            tools:text="Adidas" />
+            <TextView
+                android:id="@+id/company"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company"
+                app:layout_constraintBottom_toBottomOf="@+id/size"
+                app:layout_constraintStart_toEndOf="@+id/size_text"
+                app:layout_constraintTop_toTopOf="@+id/size" />
 
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/description"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:padding="@dimen/padding_medium"
-            android:layout_marginBottom="@dimen/content_margin"
-            app:layout_constraintStart_toStartOf="@id/shoe"
-            app:layout_constraintTop_toBottomOf="@+id/shoe" />
+            <TextView
+                android:id="@+id/company_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/padding_medium"
+                android:text="@{shoeData.company}"
+                android:textColor="@color/text_color"
+                app:layout_constraintBottom_toBottomOf="@+id/company"
+                app:layout_constraintStart_toEndOf="@+id/company"
+                app:layout_constraintTop_toTopOf="@+id/company"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="Adidas" />
 
-        <TextView
-            android:id="@+id/description_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            tools:text="@string/description_text"
-            app:layout_constraintStart_toEndOf="@id/description"
-            app:layout_constraintTop_toTopOf="@id/description"
-            app:layout_constraintBottom_toBottomOf="@id/description"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
-</com.google.android.material.card.MaterialCardView>
+            <TextView
+                android:id="@+id/description"
+                style="@style/label_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/content_margin"
+                android:text="@string/description"
+                app:layout_constraintStart_toStartOf="@id/shoe"
+                app:layout_constraintTop_toBottomOf="@+id/shoe" />
+
+            <TextView
+                android:id="@+id/description_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{shoeData.description}"
+                android:textColor="@color/text_color"
+                app:layout_constraintBottom_toBottomOf="@id/description"
+                app:layout_constraintStart_toEndOf="@id/description"
+                app:layout_constraintTop_toTopOf="@id/description"
+                tools:text="@string/description_text" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

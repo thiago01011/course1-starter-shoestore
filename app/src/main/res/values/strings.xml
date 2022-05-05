@@ -3,7 +3,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="email_label">Email</string>
-    <string name="login_button">Login or Register</string>
+    <string name="login_button">Login</string>
     <string name="password_label">Password</string>
     <string name="welcome_next_button">Next</string>
     <string name="welcome_text">Welcome to Shoes List</string>
@@ -28,4 +28,11 @@
     <string name="name_hint">Your name here</string>
     <string name="shoe_company_name_hint">Shoe\'s company name</string>
     <string name="shoe_s_description">Shoe\'s description</string>
+    <string name="userlogin">User Login</string>
+    <string name="forgotPassword">Forgot password?</string>
+    <string name="welcoming_text">Thank you for signing up with Shoe store. In order to get started, please, follow the instructions.</string>
+    <string name="instructions_text">In the next screen, you will see that your shoe list is empty. Please, add shoes through the plus button at the bottom right corner.</string>
+    <string name="instructions_label_text">Instructions</string>
+    <string name="floatbutton_description">Go to detail screen to add a new shoe.</string>
+    <string name="register_button">Register</string>
 </resources>

@@ -1,11 +1,11 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentWelcomeBinding
@@ -23,10 +23,12 @@ class WelcomeFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val dataBinding: FragmentWelcomeBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_welcome, container, false)
+            inflater, R.layout.fragment_welcome, container, false
+        )
 
-        dataBinding.welcomeNextButton.setOnClickListener (
-            Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_instructionsFragment))
+        dataBinding.welcomeNextButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_instructionsFragment)
+        )
 
         return dataBinding.root
     }

@@ -1,13 +1,13 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 /**
@@ -22,10 +22,12 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val dataBinding: FragmentLoginBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_login, container, false)
+            inflater, R.layout.fragment_login, container, false
+        )
 
-        dataBinding.loginButton.setOnClickListener (
-            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment))
+        dataBinding.loginButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+        )
 
         return dataBinding.root
     }

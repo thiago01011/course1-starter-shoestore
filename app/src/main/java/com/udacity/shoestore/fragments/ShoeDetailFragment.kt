@@ -1,21 +1,19 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.fragments
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ListView
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import com.udacity.shoestore.AppViewModel
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.databinding.FragmentShoeListBinding
 import com.udacity.shoestore.models.Shoe
 import kotlinx.android.synthetic.main.fragment_shoe_detail.*
-import timber.log.Timber
 
 /**
  * A simple [Fragment] subclass.
@@ -33,20 +31,22 @@ class ShoeDetailFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         dataBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_shoe_detail, container, false)
+            inflater, R.layout.fragment_shoe_detail, container, false
+        )
 
         dataBinding.cancelButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_shoeDetailFragment_to_shoeListFragment)
         )
 
+        dataBinding.shoe = Shoe()
+
         dataBinding.saveButton.setOnClickListener { view ->
-            var shoe = Shoe(dataBinding.shoeEdit.text.toString(),
-                dataBinding.sizeEdit.text.toString().toDoubleOrNull()!!,
-                dataBinding.companyEdit.text.toString(),
-                dataBinding.descriptionEdit.text.toString()
-            )
-            viewModel.shoeList.value?.add(shoe)
-            view.findNavController().navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+            if (dataBinding.shoe != null) {
+                val shoe = dataBinding.shoe
+                viewModel.addShoe(shoe)
+                view.findNavController()
+                    .navigate(ShoeDetailFragmentDirections.actionShoeDetailFragmentToShoeListFragment())
+            }
         }
 
         return dataBinding.root

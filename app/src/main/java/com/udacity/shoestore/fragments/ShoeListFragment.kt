@@ -1,23 +1,18 @@
-package com.udacity.shoestore
+package com.udacity.shoestore.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.*
-import android.widget.ArrayAdapter
-import android.widget.ListView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.LinearLayoutManager
+import com.udacity.shoestore.AppViewModel
+import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.databinding.ListItem2Binding
 import com.udacity.shoestore.models.Shoe
-import timber.log.Timber
 
 
 /**
@@ -36,7 +31,10 @@ class ShoeListFragment : Fragment() {
     ): View? {
         // Initializing data binding
         dataBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_shoe_list, container, false)
+            inflater, R.layout.fragment_shoe_list, container, false
+        )
+
+        dataBinding.lifecycleOwner = this
 
         updateShoeList()
 
@@ -63,11 +61,19 @@ class ShoeListFragment : Fragment() {
 
     private fun updateShoeList() {
         // Updating the list
-        viewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeListUpdated ->
-            val adapter = ShoeAdapter(requireContext(), shoeListUpdated, viewModel)
-            dataBinding.recycler.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            dataBinding.recycler.adapter = adapter
+        viewModel.shoeListLiveData.observe(viewLifecycleOwner, Observer { shoeListUpdated ->
+            if (shoeListUpdated.isNotEmpty()) {
+                addItemToList(shoeListUpdated)
+            }
         })
+    }
+
+    private fun addItemToList(shoeList: List<Shoe>) {
+        for (shoe in shoeList) {
+            val shoeItemListBinding = ListItem2Binding.inflate(layoutInflater, dataBinding.listLinearlayout, false)
+            shoeItemListBinding.shoeData = shoe
+            dataBinding.listLinearlayout.addView(shoeItemListBinding.root)
+        }
     }
 
     private fun movingToDetailFragment() {

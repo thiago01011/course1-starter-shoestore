@@ -8,19 +8,14 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#6F03A9F4">
 
             <LinearLayout
+                android:id="@+id/list_linearlayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recycler"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="2dp" />
 
             </LinearLayout>
 
@@ -34,7 +29,7 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:layout_weight="1"
-                android:contentDescription="todo"
+                android:contentDescription="@string/floatbutton_description"
                 android:src="@drawable/ic_add" />
 
         </FrameLayout>
