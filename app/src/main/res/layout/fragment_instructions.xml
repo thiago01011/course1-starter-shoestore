@@ -9,13 +9,11 @@
         android:background="@drawable/login_bg"
         tools:context=".fragments.InstructionsFragment">
 
-        <!-- TODO: Update blank fragment layout -->
-
         <ImageView
             android:id="@+id/list_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="@dimen/content_margin"
+            android:layout_margin="@dimen/content_margin_small"
             android:padding="@dimen/padding_medium"
             android:src="@drawable/list_icon"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -30,10 +28,10 @@
             style="@style/label_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/content_margin"
+            android:layout_margin="@dimen/content_margin_small"
             android:padding="@dimen/padding_medium"
             android:text="@string/instructions_label_text"
-            android:textSize="@dimen/header_label_size_txt"
+            android:textSize="@dimen/header_size_medium"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/list_image" />
@@ -43,7 +41,7 @@
             style="@style/text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="32dp"
+            android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:text="@string/instructions_text"
             android:textAlignment="center"
             android:textStyle="bold"
@@ -56,7 +54,7 @@
             style="@style/button_style"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/welcome_next_button"
+            android:text="@string/instructions_next_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/instructions_content_text"
             app:layout_constraintStart_toStartOf="@id/instructions_content_text"

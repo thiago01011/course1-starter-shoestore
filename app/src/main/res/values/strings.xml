@@ -1,38 +1,44 @@
 <resources>
     <string name="app_name">ShoeStore</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Login fragment -->
+    <string name="userlogin">User Login</string>
     <string name="email_label">Email</string>
-    <string name="login_button">Login</string>
     <string name="password_label">Password</string>
-    <string name="welcome_next_button">Next</string>
+    <string name="register_button">Register</string>
+    <string name="login_button">Login</string>
+    <string name="forgotPassword">Forgot password?</string>
+
+    <!-- Welcome fragment -->
     <string name="welcome_text">Welcome to Shoes List</string>
-    <string name="shoe_name_text">Name</string>
-    <string name="shoe_company_text">Company</string>
-    <string name="shoe_size_text">Size</string>
-    <string name="shoe_description_text">Description</string>
-    <string name="shoe_hint_name">Name</string>
-    <string name="show_hint_company">Company</string>
-    <string name="show_hint_description" />
-    <string name="shoe_name_hint">Name</string>
-    <string name="cancel_button">Cancel</string>
-    <string name="save_button">Save</string>
-    <string name="shoe_label">Shoe</string>
-    <string name="size">Size:</string>
+    <string name="welcoming_text">Thank you for signing up with Shoe store. In order to get started, please, follow the instructions.</string>
+    <string name="welcome_next_button">Next</string>
+
+    <!-- Instructions fragment -->
+    <string name="instructions_label_text">Instructions</string>
+    <string name="instructions_text">In the next screen, you will see that your shoe list is empty. Please, add shoes through the plus button at the bottom right corner.</string>
+    <string name="instructions_next_button">Next</string>
+
+    <!-- Shoe list fragment -->
+    <string name="floatbutton_description">Go to detail screen to add a new shoe.</string>
+    <string name="logout_menu_item">Logout</string>
+
+    <!-- Shoe list item fragment -->
     <string name="shoe">Shoe:</string>
+    <string name="size">Size:</string>
     <string name="company">Company:</string>
     <string name="description">Description:</string>
-    <string name="description_text">Simple description</string>
-    <string name="shoe_company_hint">Company</string>
-    <string name="logout_menu_item">Logout</string>
-    <string name="name_hint">Your name here</string>
+
+    <!-- Shoe detail item fragment -->
+    <string name="shoe_label">Shoe</string>
+    <string name="shoe_name_text">Name</string>
+    <string name="shoe_name_hint">Shoe\'s name</string>
+    <string name="shoe_company_text">Company</string>
     <string name="shoe_company_name_hint">Shoe\'s company name</string>
+    <string name="shoe_size_text">Size</string>
+    <string name="shoe_description_text">Description</string>
     <string name="shoe_s_description">Shoe\'s description</string>
-    <string name="userlogin">User Login</string>
-    <string name="forgotPassword">Forgot password?</string>
-    <string name="welcoming_text">Thank you for signing up with Shoe store. In order to get started, please, follow the instructions.</string>
-    <string name="instructions_text">In the next screen, you will see that your shoe list is empty. Please, add shoes through the plus button at the bottom right corner.</string>
-    <string name="instructions_label_text">Instructions</string>
-    <string name="floatbutton_description">Go to detail screen to add a new shoe.</string>
-    <string name="register_button">Register</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="save_button">Save</string>
+    <string name="description_text">This is a good shoe.</string>
 </resources>

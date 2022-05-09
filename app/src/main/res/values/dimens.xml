@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="content_margin">8dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
-    <dimen name="textSize">16sp</dimen>
-    <dimen name="huge_margin">32dp</dimen>
-    <dimen name="welcome_label_txt">24sp</dimen>
-    <dimen name="header_label_size_txt">24sp</dimen>
-    <dimen name="medium_margin">16dp</dimen>
-    <dimen name="view_normal_top_margin">8dp</dimen>
-    <dimen name="view_medium_top_margin">16dp</dimen>
-    <dimen name="login_horizontal_margin">32dp</dimen>
+    <dimen name="horizontal_margin">32dp</dimen>
+
+    <dimen name="text_size_medium">16sp</dimen>
+
+    <dimen name="header_size_medium">24sp</dimen>
+    <dimen name="header_size_huge">32sp</dimen>
+
+    <dimen name="content_margin_small">8dp</dimen>
+    <dimen name="content_margin_medium">16dp</dimen>
+    <dimen name="content_margin_high">24dp</dimen>
 </resources>

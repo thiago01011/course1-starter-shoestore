@@ -17,8 +17,8 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="text_style">
-        <item name="android:layout_marginTop">@dimen/content_margin</item>
-        <item name="android:textSize">@dimen/textSize</item>
+        <item name="android:layout_marginTop">@dimen/content_margin_small</item>
+        <item name="android:textSize">@dimen/text_size_medium</item>
         <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/text_color</item>
     </style>
