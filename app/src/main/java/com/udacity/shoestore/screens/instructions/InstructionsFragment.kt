@@ -17,19 +17,31 @@ import com.udacity.shoestore.databinding.FragmentInstructionsBinding
  */
 class InstructionsFragment : Fragment() {
 
+    private lateinit var dataBinding: FragmentInstructionsBinding
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        setupDataBinding(inflater, container)
+        setupButtons()
+
+        return dataBinding.root
+    }
+
+    private fun setupDataBinding(inflater: LayoutInflater, container: ViewGroup?) {
         // Inflate the layout for this fragment
-        val dataBinding: FragmentInstructionsBinding = DataBindingUtil.inflate(
+        dataBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_instructions, container, false
         )
 
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+    }
+
+    private fun setupButtons() {
         dataBinding.instructionsNextButton.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_instructionsFragment_to_shoeListFragment)
         )
-
-        return dataBinding.root
     }
 }

@@ -14,8 +14,6 @@ import androidx.navigation.findNavController
 import com.udacity.shoestore.AppViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentShoeDetailBinding
-import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.screens.login.LoginViewModel
 import kotlinx.android.synthetic.main.fragment_shoe_detail.*
 
 /**
@@ -63,7 +61,7 @@ class ShoeDetailFragment : Fragment() {
             val name = dataBinding.viewModel?.shoe?.value?.name ?: ""
             val company = dataBinding.viewModel?.shoe?.value?.company ?: ""
 
-            if (IsDataValid(name, company)) {
+            if (isDataValid(name, company)) {
                 val shoe = dataBinding.viewModel?.shoe?.value
                 appViewModel.addShoe(shoe)
                 view?.findNavController()
@@ -72,11 +70,12 @@ class ShoeDetailFragment : Fragment() {
                 Toast.makeText(
                     requireContext(),
                     "Name/Company cannot be empty.",
-                    Toast.LENGTH_LONG).show()
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
     }
 
-    private fun IsDataValid(name: String, company: String) =
+    private fun isDataValid(name: String, company: String) =
         name.isNotEmpty() && company.isNotEmpty()
 }

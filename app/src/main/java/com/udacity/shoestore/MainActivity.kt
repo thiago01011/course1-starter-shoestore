@@ -1,6 +1,8 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
@@ -18,18 +20,29 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        setupDataBinding()
+        setupViewModel()
+        setupNavigation()
+
+        Timber.plant(Timber.DebugTree())
+    }
+
+    private fun setupNavigation() {
+        val navController = this.findNavController(R.id.navHostFragment)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+
+        setSupportActionBar(dataBinding.toolbar)
+    }
+
+    private fun setupViewModel() {
+        // Initializing view model
+        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
+    }
+
+    private fun setupDataBinding() {
         // Initializing data binding
         dataBinding = DataBindingUtil.setContentView<ActivityMainBinding>(
             this, R.layout.activity_main
         )
-
-        // Initializing view model
-        viewModel = ViewModelProvider(this)[AppViewModel::class.java]
-        val navController = this.findNavController(R.id.navHostFragment)
-
-        setSupportActionBar(dataBinding.toolbar)
-        Timber.plant(Timber.DebugTree())
-
     }
-
 }

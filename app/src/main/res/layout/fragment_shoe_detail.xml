@@ -4,7 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <import type="com.udacity.shoestore.Utils" />
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
@@ -49,8 +51,8 @@
             android:layout_marginTop="@dimen/content_margin_small"
             android:layout_marginEnd="@dimen/content_margin_high"
             android:ems="10"
-            android:inputType="textPersonName"
             android:hint="@string/shoe_name_hint"
+            android:inputType="textPersonName"
             android:text="@={viewModel.shoe.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"

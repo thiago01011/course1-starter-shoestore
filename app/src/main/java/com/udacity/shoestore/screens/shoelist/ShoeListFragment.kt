@@ -29,20 +29,42 @@ class ShoeListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
+        setupDataBinding(inflater, container)
+        setupShoeList()
+        setupButtons()
+        setupMenu()
+
+        return dataBinding.root
+    }
+
+    private fun setupDataBinding(inflater: LayoutInflater, container: ViewGroup?) {
         // Initializing data binding
         dataBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_shoe_list, container, false
         )
 
         dataBinding.lifecycleOwner = this
+    }
 
-        updateShoeList()
+    private fun setupShoeList() {
+        // Updating the list
+        viewModel.shoeListLiveData.observe(viewLifecycleOwner, Observer { shoeListUpdated ->
+            if (shoeListUpdated.isNotEmpty()) {
+                addItemToList(shoeListUpdated)
+            }
+        })
+    }
 
-        movingToDetailFragment()
+    private fun setupButtons() {
+        // Going to shoe detail fragment
+        dataBinding.addShoeButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
+        )
+    }
 
-        setupMenu()
-
-        return dataBinding.root
+    private fun setupMenu() {
+        setHasOptionsMenu(true)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -55,31 +77,12 @@ class ShoeListFragment : Fragment() {
         inflater.inflate(R.menu.menu, menu)
     }
 
-    private fun setupMenu() {
-        setHasOptionsMenu(true)
-    }
-
-    private fun updateShoeList() {
-        // Updating the list
-        viewModel.shoeListLiveData.observe(viewLifecycleOwner, Observer { shoeListUpdated ->
-            if (shoeListUpdated.isNotEmpty()) {
-                addItemToList(shoeListUpdated)
-            }
-        })
-    }
-
     private fun addItemToList(shoeList: List<Shoe>) {
         for (shoe in shoeList) {
-            val shoeItemListBinding = ListItem2Binding.inflate(layoutInflater, dataBinding.listLinearlayout, false)
+            val shoeItemListBinding =
+                ListItem2Binding.inflate(layoutInflater, dataBinding.listLinearlayout, false)
             shoeItemListBinding.shoeData = shoe
             dataBinding.listLinearlayout.addView(shoeItemListBinding.root)
         }
-    }
-
-    private fun movingToDetailFragment() {
-        // Going to shoe detail fragment
-        dataBinding.addShoeButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_shoeDetailFragment)
-        )
     }
 }

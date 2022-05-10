@@ -59,7 +59,7 @@ class LoginFragment : Fragment() {
     private fun moveToNextFragment() {
         val email = dataBinding.viewModel?.user?.value?.login ?: ""
         val password = dataBinding.viewModel?.user?.value?.password ?: ""
-        if (IsDataValid(email, password)) {
+        if (isDataValid(email, password)) {
             view?.findNavController()
                 ?.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
 
@@ -67,11 +67,12 @@ class LoginFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "Login/Password cannot be empty.",
-                Toast.LENGTH_LONG).show()
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
-    private fun IsDataValid(email: String, password: String) =
+    private fun isDataValid(email: String, password: String) =
         email.isNotEmpty() && password.isNotEmpty()
 
 }

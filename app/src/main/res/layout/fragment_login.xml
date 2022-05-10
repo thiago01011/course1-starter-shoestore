@@ -5,6 +5,7 @@
     tools:context=".screens.login.LoginFragment">
 
     <data>
+
         <variable
             name="viewModel"
             type="com.udacity.shoestore.screens.login.LoginViewModel" />
@@ -50,14 +51,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:autofillHints="Set your email here."
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="@dimen/padding_medium"
             android:inputType="textEmailAddress"
             android:text="@={viewModel.user.login}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/email_txt"
-            app:layout_constraintTop_toBottomOf="@+id/email_txt"
-            android:autofillHints="Set your email here." />
+            app:layout_constraintTop_toBottomOf="@+id/email_txt" />
 
         <TextView
             android:id="@+id/password_txt"
@@ -78,14 +79,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:autofillHints="Set your password here."
             android:drawableStart="@drawable/ic_key"
             android:drawablePadding="@dimen/padding_medium"
-            android:text="@={viewModel.user.password}"
             android:inputType="textPassword"
+            android:text="@={viewModel.user.password}"
             app:layout_constraintEnd_toEndOf="@id/email_txtField"
             app:layout_constraintStart_toStartOf="@id/email_txtField"
-            app:layout_constraintTop_toBottomOf="@id/password_txt"
-            android:autofillHints="Set your password here." />
+            app:layout_constraintTop_toBottomOf="@id/password_txt" />
 
         <TextView
             android:id="@+id/forgot_password_txt"
