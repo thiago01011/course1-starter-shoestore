@@ -6,15 +6,15 @@
     <data>
         <import type="com.udacity.shoestore.Utils" />
         <variable
-            name="shoe"
-            type="com.udacity.shoestore.models.Shoe" />
+            name="viewModel"
+            type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login_bg"
-        tools:context=".fragments.ShoeDetailFragment">
+        tools:context=".screens.shoedetail.ShoeDetailFragment">
 
         <TextView
             android:id="@+id/shoe_label"
@@ -51,7 +51,7 @@
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/shoe_name_hint"
-            android:text="@={shoe.name}"
+            android:text="@={viewModel.shoe.name}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/shoe_text"
@@ -77,7 +77,7 @@
             android:ems="10"
             android:hint="@string/shoe_company_name_hint"
             android:inputType="textPersonName"
-            android:text="@={shoe.company}"
+            android:text="@={viewModel.shoe.company}"
             app:layout_constraintEnd_toEndOf="@id/shoe_edit"
             app:layout_constraintStart_toStartOf="@id/shoe_edit"
             app:layout_constraintTop_toBottomOf="@id/shoe_edit" />
@@ -101,7 +101,7 @@
             android:ems="10"
             android:importantForAutofill="no"
             android:inputType="number"
-            android:text="@={Utils.convertDoubleToString(shoe.size)}"
+            android:text="@={Utils.convertDoubleToString(viewModel.shoe.size)}"
             app:layout_constraintStart_toStartOf="@+id/company_edit"
             app:layout_constraintTop_toBottomOf="@+id/company_edit" />
 
@@ -122,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/content_margin_small"
             android:hint="@string/shoe_s_description"
-            android:text="@={shoe.description}"
+            android:text="@={viewModel.shoe.description}"
             app:layout_constraintEnd_toEndOf="@id/shoe_edit"
             app:layout_constraintStart_toStartOf="@+id/description_text"
             app:layout_constraintTop_toBottomOf="@+id/description_text" />

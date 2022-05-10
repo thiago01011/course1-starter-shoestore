@@ -2,12 +2,12 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".fragments.LoginFragment">
+    tools:context=".screens.login.LoginFragment">
 
     <data>
         <variable
-            name="user"
-            type="com.udacity.shoestore.models.User" />
+            name="viewModel"
+            type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -53,7 +53,7 @@
             android:drawableLeft="@drawable/ic_person"
             android:drawablePadding="@dimen/padding_medium"
             android:inputType="textEmailAddress"
-            android:text="@={user.login}"
+            android:text="@={viewModel.user.login}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/email_txt"
             app:layout_constraintTop_toBottomOf="@+id/email_txt"
@@ -80,7 +80,7 @@
             android:layout_marginHorizontal="@dimen/horizontal_margin"
             android:drawableStart="@drawable/ic_key"
             android:drawablePadding="@dimen/padding_medium"
-            android:text="@={user.password}"
+            android:text="@={viewModel.user.password}"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@id/email_txtField"
             app:layout_constraintStart_toStartOf="@id/email_txtField"

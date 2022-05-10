@@ -1,4 +1,4 @@
-package com.udacity.shoestore.fragments
+package com.udacity.shoestore.screens.login
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,12 +7,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import com.udacity.shoestore.AppViewModel
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
-import com.udacity.shoestore.models.User
 
 /**
  * A simple [Fragment] subclass.
@@ -20,26 +18,32 @@ import com.udacity.shoestore.models.User
  * create an instance of this fragment.
  */
 class LoginFragment : Fragment() {
+
     private lateinit var dataBinding: FragmentLoginBinding
-    private val viewModel: AppViewModel by activityViewModels()
+    private lateinit var viewModel: LoginViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        setupBinding(inflater, container)
+        setupViewModel()
+        setupDataBinding(inflater, container)
         setupButtons()
 
         return dataBinding.root
     }
 
-    private fun setupBinding(inflater: LayoutInflater, container: ViewGroup?) {
+    private fun setupViewModel() {
+        viewModel = ViewModelProvider(this)[LoginViewModel::class.java]
+    }
+
+    private fun setupDataBinding(inflater: LayoutInflater, container: ViewGroup?) {
         dataBinding = DataBindingUtil.inflate(
             inflater, R.layout.fragment_login, container, false
         )
-        dataBinding.lifecycleOwner = this
-        dataBinding.user = User()
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+        dataBinding.viewModel = viewModel
     }
 
     private fun setupButtons() {
@@ -53,20 +57,21 @@ class LoginFragment : Fragment() {
     }
 
     private fun moveToNextFragment() {
-        val email = dataBinding.user?.login ?: ""
-        val password = dataBinding.user?.password ?: ""
-        if (dataIsValid(email, password)) {
-            viewModel.addUser(dataBinding.user!!)
+        val email = dataBinding.viewModel?.user?.value?.login ?: ""
+        val password = dataBinding.viewModel?.user?.value?.password ?: ""
+        if (IsDataValid(email, password)) {
             view?.findNavController()
                 ?.navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
 
         } else {
-            Toast.makeText(requireContext(), "Login/Password cannot be empty.", Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                requireContext(),
+                "Login/Password cannot be empty.",
+                Toast.LENGTH_LONG).show()
         }
     }
 
-    private fun dataIsValid(email: String, password: String) =
+    private fun IsDataValid(email: String, password: String) =
         email.isNotEmpty() && password.isNotEmpty()
-
 
 }

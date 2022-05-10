@@ -1,4 +1,4 @@
-package com.udacity.shoestore.fragments
+package com.udacity.shoestore.screens.instructions
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,29 +8,28 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import com.udacity.shoestore.R
-import com.udacity.shoestore.databinding.FragmentWelcomeBinding
+import com.udacity.shoestore.databinding.FragmentInstructionsBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [WelcomeFragment.newInstance] factory method to
+ * Use the [InstructionsFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class WelcomeFragment : Fragment() {
+class InstructionsFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val dataBinding: FragmentWelcomeBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_welcome, container, false
+        val dataBinding: FragmentInstructionsBinding = DataBindingUtil.inflate(
+            inflater, R.layout.fragment_instructions, container, false
         )
 
-        dataBinding.welcomeNextButton.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_instructionsFragment)
+        dataBinding.instructionsNextButton.setOnClickListener(
+            Navigation.createNavigateOnClickListener(R.id.action_instructionsFragment_to_shoeListFragment)
         )
 
         return dataBinding.root
     }
-
 }

@@ -1,5 +1,6 @@
 package com.udacity.shoestore
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -7,8 +8,8 @@ import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.models.User
 
 class AppViewModel : ViewModel() {
-    private val _user = MutableLiveData<User>()
-    var user: LiveData<User> = _user
+    private val _shoe = MutableLiveData<Shoe>()
+    var shoe: LiveData<Shoe> = _shoe
 
     private val _shoeListLiveData = MutableLiveData<List<Shoe>>()
     var shoeListLiveData: LiveData<List<Shoe>> = _shoeListLiveData
@@ -25,9 +26,5 @@ class AppViewModel : ViewModel() {
             shoeList.add(shoe)
         }
         _shoeListLiveData.value = shoeList
-    }
-
-    fun addUser(user: User) {
-        _user.value = user
     }
 }
