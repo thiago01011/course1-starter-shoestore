@@ -12,6 +12,12 @@
             type="com.udacity.shoestore.screens.shoedetail.ShoeDetailViewModel" />
     </data>
 
+    <!-- ConstraintLayout is used here because the layout is
+    for two columns and a line at the bottom. If used LinearLayout
+    instead it would require more than 3 viewgroups and it would
+    still be complex to keep the views organized on configuration
+    changes such as rotation. So, as matter of making things simple,
+    ConstraintLayout is the choice here.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

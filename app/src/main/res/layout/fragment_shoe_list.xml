@@ -11,6 +11,9 @@
             android:layout_height="match_parent"
             android:background="#6F03A9F4">
 
+            <!-- LinearLayout used to lay a column of items. It's easier
+            this way than using ConstraintLayout which would require
+            setting up constraints to the items-->
             <LinearLayout
                 android:id="@+id/list_linearlayout"
                 android:layout_width="match_parent"

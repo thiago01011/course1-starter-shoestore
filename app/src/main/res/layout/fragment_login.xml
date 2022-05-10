@@ -11,6 +11,11 @@
             type="com.udacity.shoestore.screens.login.LoginViewModel" />
     </data>
 
+    <!-- ConstraintLayout used to lay the views of this screen.
+    If instead was used LinearLayout, it probably would require two of it,
+    so two viewgroups instead of one. That's why ConstraintLayout was chosen.
+    However, in this case, both layouts probably would have same complexity
+    and performance.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"

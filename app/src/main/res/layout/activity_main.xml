@@ -3,6 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- LinearLayout used to lay only 2 itens: AppBarLayout and navHostFragment.
+    As this layout is so simple, LinearLayout was chosen. It felt like using
+    ConstraintLayout would be a canon to kill a mosquito.-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,18 +26,14 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
+        <fragment
+            android:id="@+id/navHostFragment"
+            android:name="androidx.navigation.fragment.NavHostFragment"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:defaultNavHost="true"
+            app:navGraph="@navigation/nav" />
 
-            <fragment
-                android:id="@+id/navHostFragment"
-                android:name="androidx.navigation.fragment.NavHostFragment"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:defaultNavHost="true"
-                app:navGraph="@navigation/nav" />
-        </LinearLayout>
     </LinearLayout>
 
 </layout>

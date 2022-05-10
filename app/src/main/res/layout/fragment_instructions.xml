@@ -1,63 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- LinearLayout used to lay only 4 itens in a straight vertical column.
+    So, there's no need of using ConstraintLayout in a simple layout like this.-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/login_bg"
+        android:orientation="vertical"
         tools:context=".screens.instructions.InstructionsFragment">
 
         <ImageView
             android:id="@+id/list_image"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
             android:layout_margin="@dimen/content_margin_small"
+            android:layout_weight="0"
             android:padding="@dimen/padding_medium"
-            android:src="@drawable/list_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="h,1:1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.08" />
+            android:src="@drawable/list_icon" />
 
         <TextView
             android:id="@+id/instructions_text"
             style="@style/label_style"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/content_margin_small"
+            android:layout_marginHorizontal="@dimen/content_margin_small"
             android:padding="@dimen/padding_medium"
             android:text="@string/instructions_label_text"
-            android:textSize="@dimen/header_size_medium"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/list_image" />
+            android:textAlignment="center"
+            android:textSize="@dimen/header_size_medium" />
 
         <TextView
             android:id="@+id/instructions_content_text"
             style="@style/text_style"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/horizontal_margin"
+            android:layout_marginHorizontal="@dimen/content_margin_small"
+            android:layout_marginBottom="@dimen/content_margin_small"
             android:text="@string/instructions_text"
             android:textAlignment="center"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/instructions_text"
-            app:layout_constraintStart_toStartOf="@+id/instructions_text"
-            app:layout_constraintTop_toBottomOf="@id/instructions_text" />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/instructions_next_button"
             style="@style/button_style"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/instructions_next_button"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@id/instructions_content_text"
-            app:layout_constraintStart_toStartOf="@id/instructions_content_text"
-            app:layout_constraintTop_toBottomOf="@+id/instructions_content_text" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:layout_marginHorizontal="@dimen/content_margin_high"
+            android:layout_marginTop="@dimen/content_margin_medium"
+            android:layout_marginBottom="@dimen/content_margin_small"
+            android:text="@string/instructions_next_button" />
+    </LinearLayout>
 </layout>
